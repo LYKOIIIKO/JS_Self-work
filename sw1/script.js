@@ -13,29 +13,29 @@ function getCity(city) {
 }
 
 let arrCity = [];
-// getCity('Минск,Брест,Гродно,Витебск,Могилев,Гомель');
-// getCity();
-// getCity();
+getCity('Минск,Брест,Гродно,Витебск,Могилев,Гомель');
+getCity();
+getCity();
 console.log(arrCity.sort());
 
 console.log('---------------Задание 2----------------');
 //2. Создайте двумерный массив [['Иван', 'Катя', 'Ольга', 'Максим'], ['Минск', 'Брест', 'Гродно', 'Могилев']]. Используя вложенные циклы вывести в консоль строки вида: "Иван из Минск", "Катя из Брест", "Ольга из Гродно", "Максим из Могилев". Создайте массив с расстояниями до городов от Минска (нулевой км). Выведите информацию о расстоянии между Иваном и Максимом. Предусмотрите возможность запрашивать расстояние между другими людьми.
 
-// let arr2 = [['Иван', 'Катя', 'Ольга', 'Максим'], ['Минск', 'Брест', 'Гродно', 'Могилев']];
+let arr2 = [['Иван', 'Катя', 'Ольга', 'Максим'], ['Минск', 'Брест', 'Гродно', 'Могилев']];
 
-// for(let i = 0; arr2[0][i] != undefined || arr2[1][i] != undefined; i++) {
-// 	console.log(`${arr2[0][i]} из ${arr2[1][i]}`);
-// }
+for(let i = 0; arr2[0][i] != undefined || arr2[1][i] != undefined; i++) {
+	console.log(`${arr2[0][i]} из ${arr2[1][i]}`);
+}
 
-// let distanceArr = [0, 351, 276, 197];
+let distanceArr = [0, 351, 276, 197];
 
-// let distanceBetweenStr = prompt('Вы можете узнать расстояние между людьми! Введите два имени через запятую (прим.:Иван,Максим).'),
-// 	distanceBetweenArr = distanceBetweenStr.split(','),
-// 	distanceBetweenName1 = arr2[0].indexOf(distanceBetweenArr[0]),
-// 	distanceBetweenName2 = arr2[0].indexOf(distanceBetweenArr[1]),
-// 	distanceBetweenPeople = distanceArr[distanceBetweenName1] + distanceArr[distanceBetweenName2];
+let distanceBetweenStr = prompt('Вы можете узнать расстояние между людьми! Введите два имени через запятую (прим.:Иван,Максим).'),
+	distanceBetweenArr = distanceBetweenStr.split(','),
+	distanceBetweenName1 = arr2[0].indexOf(distanceBetweenArr[0]),
+	distanceBetweenName2 = arr2[0].indexOf(distanceBetweenArr[1]),
+	distanceBetweenPeople = distanceArr[distanceBetweenName1] + distanceArr[distanceBetweenName2];
 
-// console.log(`Расстояние между ${arr2[0][distanceBetweenName1]} и ${arr2[0][distanceBetweenName2]} равняется ${distanceBetweenPeople}км (если ехать через Минск)`);
+console.log(`Расстояние между ${arr2[0][distanceBetweenName1]} и ${arr2[0][distanceBetweenName2]} равняется ${distanceBetweenPeople}км (если ехать через Минск)`);
 
 console.log('---------------Задание 3----------------');
 //3. Напишите функцию, которая принимает две даты и возвращает количество дней между ними. В зависимости от значения, выведите: "дата уже близко" (< 3 дней), "еще есть время" (от 3 до 7), "далековато еще" (> 7 дней).
