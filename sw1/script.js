@@ -134,11 +134,46 @@ console.log('---------------Задание 7----------------');
 //7. Напишите программу, которая генерирует случайным образом новый пароль, состоящий из 8 чисел (параметром можно задавать длину) и возвращает результат. По желанию, доработайте функцию: сделайте генератор паролей из латинских символов, целых чисел и специальных символов: _-,.&*^$#@+=!; минимум один большой символ, одна цифра, один спец. символ.
 
 function getPass(length) {
+	function rand(min, max) {
+		return Math.floor(Math.random() * (max - min) + min);
+	}
+
+	// 49 - 57 = dig
+	// 65 - 90 = A
+	// 97 - 122 = a
+
+	let spChArr = ['_', '-', ',', '.', '&', '*', '^', '$', '#', '@', '+', '=', '!'];
+
 	let pass = '';
 
-	for(let i = 0; i < length; i++) {
-		let num = Math.round(Math.random() * 9);
-		pass += num;
+	while(true) {
+		let randCharsArr = [
+			String.fromCharCode(rand(49, 58)),
+			String.fromCharCode(rand(65, 91)),
+			String.fromCharCode(rand(97, 123)),
+			spChArr[rand(0, spChArr.length)]
+		]
+
+		pass += randCharsArr[rand(0, 4)];
+
+		if (pass.length == length) {
+			let countSpCh = 0,
+				countUpCh = 0,
+				countD = 0;
+
+			for (let i = 0; i < pass.length; i++) {
+				if (spChArr.indexOf(pass[i]) >= 0) countSpCh++;
+
+				let chCode = pass[i].charCodeAt();
+
+				if(chCode >= 65 && chCode <= 90) countUpCh++;
+
+				if(chCode >= 49 && chCode <= 57) countD++;
+			}
+
+			if(countSpCh > 1 && countUpCh > 1 && countD > 1) break;
+			else pass = '';
+		}
 	}
 
 	return pass;
